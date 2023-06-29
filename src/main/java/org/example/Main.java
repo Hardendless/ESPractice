@@ -1,16 +1,15 @@
 package org.example;
 
-import org.apache.http.HttpHost;
-import org.elasticsearch.client.RestClient;
-import org.elasticsearch.client.RestHighLevelClient;
+import org.example.task.MyTask;
+import org.example.task.TaskCenter;
 
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        RestHighLevelClient client = new RestHighLevelClient(
-                RestClient.builder(new HttpHost("localhost", 9200, "http"))
-        );
+//        RestHighLevelClient client = new RestHighLevelClient(
+//                RestClient.builder(new HttpHost("localhost", 9200, "http"))
+//        );
 //        创建索引
 //        CreateIndexRequest request = new CreateIndexRequest("user");
 //        CreateIndexResponse response = client.indices().create(request, RequestOptions.DEFAULT);
@@ -31,6 +30,8 @@ public class Main {
 //        System.out.println("删除操作的结果" + response.isAcknowledged());
 
 
-        client.close();
+//        client.close();
+        TaskCenter taskCenter = new TaskCenter();
+        taskCenter.executeTask(new MyTask());
     }
 }

@@ -28,8 +28,6 @@ public class TaskCenter {
                 client = clientPool.getClient();
                 // 使用ESClient执行任务
                 task.run();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
             } finally {
                 if (client != null) {
                     clientPool.releaseClient(client);
